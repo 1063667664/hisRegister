@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="org.hisRegister.entity.RegistrationForm" table="registeration_info">
+		<id name="checkNum" type="java.lang.String">
+			<column name="CheckNum" />
+			<generator class="assigned"></generator>
+		</id>
+		<property name="recordID" type="java.lang.String">
+			<column name="RecordID" length="64" not-null="true"></column>
+		</property>
+		<property name="patientID" type="java.lang.String">
+			<column name="PatientID" length="64" not-null="true"></column>
+		</property>
+		<property name="patName" type="java.lang.String">
+			<column name="patName" length="64" not-null="true"></column>
+		</property>
+		<property name="patNamePY" type="java.lang.String">
+			<column name="patNamePY" length="64" not-null="true"></column>
+		</property>
+		<property name="patGender" type="java.lang.String">
+			<column name="PatGender" length="20" not-null="false"></column>
+		</property>
+		<property name="age" type="java.lang.Integer">
+			<column name="Age" length="7" not-null="false"></column>
+		</property>
+		<property name="ageType" type="java.lang.String">
+			<column name="AgeType" length="4" not-null="false"></column>
+		</property>
+		<property name="examItemName" type="java.lang.String">
+			<column name="examItemName" length="20" not-null="false"></column>
+		</property>
+		<property name="flag" type="java.lang.String">
+			<column name="Flag" length="10" not-null="false"></column>
+		</property>
+		<property name="ifUsingFlag" type="java.lang.Boolean">
+			<column name="IfUsingFlag" length="10" not-null="false"></column>
+		</property>
+		<!-- <property name="district" type="java.lang.String"> <column name="District" 
+			length="10" not-null="false"></column> </property> -->
+	</class>
+</hibernate-mapping>

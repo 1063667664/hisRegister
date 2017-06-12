@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="org.hisRegister.entity.Notice" table="answer_question">
+		<id name="id" type="int">
+			<column name="id" />
+			<generator class="identity"></generator>
+		</id>
+		<property name="question" type="java.lang.String">
+			<column name="question" length="512" not-null="true"></column>
+		</property>
+		<property name="answer" type="java.lang.String">
+			<column name="answer" length="1024" not-null="true"></column>
+		</property>
+		<property name="time" type="java.util.Date">
+			<column name="time" not-null="false"></column>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置为开发模式，一旦文件改动，不需要重启，会立即生效 -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="test" namespace="/" extends="struts-default">
+
+		<action name="registerForm" class="org.hisRegister.action.RegisterFormAction">
+			<result name="success">registerForm.jsp</result>
+			<result name="doctorLogin" type="redirectAction">
+				<param name="actionName">doctorLoginForm</param>
+			</result>
+		</action>
+		<action name="register" class="org.hisRegister.action.RegisterAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">registerForm</param>
+			</result>
+		</action>
+		<action name="registrationList" class="org.hisRegister.action.DealWithRegisters"
+			method="getRegisters">
+			<result name="success">registrations.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">doctorLoginForm</param>
+			</result>
+		</action>
+		<action name="inspected" class="org.hisRegister.action.DealWithRegisters"
+			method="inspected">
+			<result name="success" type="redirectAction">
+				<param name="actionName">registrationList</param>
+			</result>
+		</action>
+
+
+		<action name="reservationForm" class="org.hisRegister.action.ReservationFormAction">
+			<result name="success">reservationForm.jsp</result>
+			<result name="login">login.jsp</result>
+		</action>
+		<action name="reservation" class="org.hisRegister.action.ReservationAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">reservationForm</param>
+			</result>
+			<result name="input">reservationForm.jsp</result>
+		</action>
+
+
+		<action name="loginForm" class="org.hisRegister.action.LoginFormAction">
+			<result name="success">login.jsp</result>
+			<result name="userHadLogin" type="redirectAction">
+				<param name="actionName">reservationForm</param>
+			</result>
+		</action>
+		<action name="login" class="org.hisRegister.action.LoginAction">
+			<result name="success">user.jsp</result>
+			<result name="input">login.jsp</result>
+		</action>
+		<action name="logout" class="org.hisRegister.action.LogOutAction">
+			<result name="success">index.jsp</result>
+		</action>
+
+
+		<action name="getNotice" class="org.hisRegister.action.NoticeAction">
+			<result name="success">questionList.jsp</result>
+		</action>
+
+		<action name="addQuestionForm" class="org.hisRegister.action.NoticeAction"
+			method="addQuestionForm">
+			<result name="">newQuestion.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">doctorLoginForm</param>
+			</result>
+		</action>
+		<action name="addQuestion" class="org.hisRegister.action.NoticeAction"
+			method="addQuestion">
+			<result name="success">success.jsp</result>
+		</action>
+
+
+		<action name="getReservationList" class="org.hisRegister.action.DealWithReservationAction">
+			<result name="success">reservations.jsp</result>
+			<result name="login" type="redirectAction">
+				<param name="actionName">doctorLoginForm</param>
+			</result>
+		</action>
+		<action name="acceptReservation" class="org.hisRegister.action.DealWithReservationAction"
+			method="accept">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getReservationList</param>
+			</result>
+		</action>
+		<action name="doneWithReservation" class="org.hisRegister.action.DealWithReservationAction"
+			method="done">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getReservationList</param>
+			</result>
+		</action>
+		<action name="checkReservationForm" class="org.hisRegister.action.DealWithReservationAction"
+			method="checkReservationForm">
+			<result name="success">checkReservation.jsp</result>
+		</action>
+		<action name="checkReservation" class="org.hisRegister.action.DealWithReservationAction"
+			method="checkReservation">
+			<result name="success" type="redirectAction">
+				<param name="actionName">checkReservationForm</param>
+			</result>
+		</action>
+
+
+		<action name="userRegisterForm" class="org.hisRegister.action.UserRegisterFormAction">
+			<result name="success">userRegister.jsp</result>
+		</action>
+		<action name="userRegister" class="org.hisRegister.action.UserRegisterAction">
+			<result name="success">user.jsp</result>
+			<result name="input">userRegister.jsp</result>
+		</action>
+
+		<action name="showUserInfo" class="org.hisRegister.action.UserInfoAction">
+			<result name="success">user.jsp</result>
+			<result name="login">login.jsp</result>
+		</action>
+
+		<action name="doctorLoginForm" class="org.hisRegister.action.DoctorAction"
+			method="loginForm">
+			<result name="success">doctorLoginForm.jsp</result>
+			<result name="doctorHadLogin" type="redirectAction">
+				<param name="actionName">doctor.jsp</param>
+			</result>
+		</action>
+		<action name="doctorLogin" class="org.hisRegister.action.DoctorAction"
+			method="login">
+			<result name="success">doctor.jsp</result>
+			<result name="input">doctorLoginForm.jsp</result>
+		</action>
+
+	</package>
+</struts>

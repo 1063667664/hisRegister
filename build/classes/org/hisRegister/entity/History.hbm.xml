@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="org.hisRegister.entity.History" table="history_info">
+		<id name="id" type="int">
+			<column name="id" />
+			<!-- <generator class="assigned"></generator> -->
+		</id>
+		<property name="hisName" type="java.lang.String">
+			<column name="hisName" length="64" not-null="true"></column>
+		</property>
+		<property name="hisGrade" type="java.lang.String">
+			<column name="hisGrade" length="10" not-null="false"></column>
+		</property>
+		<property name="province" type="java.lang.String">
+			<column name="province" length="6" not-null="false"></column>
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="city" length="6" not-null="false"></column>
+		</property>
+		<property name="hisAddress" type="java.lang.String">
+			<column name="hisAddress" length="64" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping>

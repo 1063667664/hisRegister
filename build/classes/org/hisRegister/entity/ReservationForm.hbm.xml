@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="org.hisRegister.entity.ReservationForm" table="reservation_info">
+		<id name="id" type="int">
+			<column name="id"/>
+			<generator class="identity"></generator>
+		</id>
+		<property name="serialNumber" type="java.lang.String">
+			<column name="serialNumber" length="64" not-null="true"></column>
+		</property>
+		<property name="reservationNo" type="java.lang.String">
+			<column name="reservationNo" length="20" not-null="false"></column>
+		</property>
+		<property name="patientID" type="java.lang.String">
+			<column name="patientID" length="20" not-null="true"></column>
+		</property>
+		<property name="examItemID" type="java.lang.String">
+			<column name="examItemID" length="10" not-null="true"></column>
+		</property>
+		<property name="examPointID" type="java.lang.String">
+			<column name="examPointID" length="10" not-null="false"></column>
+		</property>
+		<property name="historyID" type="java.lang.String">
+			<column name="historyID" length="11" not-null="false"></column>
+		</property>
+		<property name="historyName" type="java.lang.String">
+			<column name="historyName" length="64" not-null="false"></column>
+		</property>
+		<property name="dateForReservation" type="java.util.Date">
+			<column name="dateForReservation" not-null="false"></column>
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="status" not-null="false"></column>
+		</property>		
+	</class>
+</hibernate-mapping>
